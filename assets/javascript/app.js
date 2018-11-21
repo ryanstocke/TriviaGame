@@ -5,7 +5,7 @@ $("#start").on("click", function () {
 $(document).on('click', '#end', function () {
     game.done();
 })
-// need an array with all of the questions and answers
+// need an object with all of the questions and answers
 var questions = [{
     question: "Woody and Buzz Lightyear are two of Andy’s toys. Who is the next door neighbor that Andy’s toys fear?",
     answers: ["Rex", "Sid", "Hamm", "George"],
@@ -56,6 +56,7 @@ var myJSON = JSON.stringify(questions);
 
 ;
 
+
 // var game
 var game = {
     correct: 0,
@@ -78,7 +79,12 @@ var game = {
         for (var i = 0; i < questions.length; i++) {
             $("#wrapper").append("<h2>" + questions[i].question + "</h2>")
             for (var x = 0; x < questions[i].answers.length; x++) {
-                $("#wrapper").append("<input type= 'radio' name ='question-" + i + "' value='" + questions[i].answers[x] + '' + "'>" + questions[i].answers[x])
+                var radioDiv = $("<div>")
+                radioDiv.append("<input type= 'radio' ' name ='question-" + i + "' value='" + questions[i].answers[x] + '' + "'>")
+                radioDiv.append("<label  class = 'radioAnswer'>" + questions[i].answers[x] + " </label>")
+
+                $("#wrapper").append(radioDiv);
+                // $("#wrapper").append("<input type= 'radio' class = 'radioAnswer' name ='question-" + i + "' value='" + questions[i].answers[x] + '' + "'>" + questions[i].answers[x])
                 // console.log("test: " + Array.from[x])
                 
             }

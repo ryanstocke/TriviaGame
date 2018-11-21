@@ -82,3 +82,7 @@ body {
     top: 50%;
     left: 50%;
 }
+
+.radioAnswer {
+    font-size: 20px;
+    }
